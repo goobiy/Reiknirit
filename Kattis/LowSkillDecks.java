@@ -16,12 +16,12 @@ public class LowSkillDecks {
             String stock = scanner.nextLine();
             trash.add(stock);
         }
-        boolean flag = false;
+
         int m = scanner.nextInt();
         scanner.nextLine();
 
         for (int j = 0; j < m; j++) {
-            flag = false;
+            boolean flag = false;
             for (int k = 0; k < 6; k++) {
                 String deck = scanner.nextLine();
                 if (trash.contains(deck)) {
@@ -35,6 +35,7 @@ public class LowSkillDecks {
             }
 
         }
+        scanner.close();
 
     }
 }
