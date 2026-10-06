@@ -18,9 +18,21 @@ public class Planetaris {
         int[] e = new int[n]; // the defences of each solar system total n
 
         for (int i = 0; i < n; i++) {
-            e[i] = StdIn.readInt();
+            e[i] = StdIn.readInt(); // Filling the defences (e) with ships
         }
+        int[] aux = new int[n];
+        sort(e, aux, 0, e.length - 1);
 
+        int total_planets = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            if (a - (e[i] + 1) >= 0) {
+                a = a - (e[i] + 1);
+                total_planets += 1;
+            }
+        }
+        System.out.println(total_planets);
     }
 
     public static void merge(int[] e, int[] aux, int lo, int mid, int hi) {
