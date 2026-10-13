@@ -10,7 +10,7 @@ public class House implements Comparable<House> {
         this.idx = idx;
     }
 
-    public int compareTo(House, other) {
+    public int compareTo(House other) {
         return Integer.compare(this.pos, other.pos);
     }
 }
