@@ -1,4 +1,3 @@
-package ph2;
 
 import java.util.LinkedList;
 
