@@ -23,7 +23,6 @@ public class Golf {
             }
             return this.name.compareTo(other.name);
         }
-
     }
 
     public static void main(String[] args) {
