@@ -31,16 +31,17 @@ public class InterplanetaryTunnels {
             int p1 = io.getInt();
             int p2 = io.getInt();
 
-            adjList.get(p1).add(p2); // adding p2 to the inner list of p1
+            adjList.get(p1).add(p2); // adding p2 and p1 to the inner list of p1 and p2
+            adjList.get(p2).add(p1); // Now we've established that the planets are connected with a tunnel
         }
 
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty()) { // BFS implementation to find the shortest path
             int current = queue.poll();
 
             for (int neighbour : adjList.get(current)) {
                 if (distance[neighbour] == -1) {
                     distance[neighbour] = distance[current] + 1;
-                    queue.add(neighbour); // oklarad
+                    queue.add(neighbour);
                 }
             }
 
