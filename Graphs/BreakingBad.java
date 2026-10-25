@@ -1,4 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 
@@ -34,6 +37,31 @@ public class BreakingBad {
 
             adjList.get(a).add(b); // Now there is a edge between the sus pair
             adjList.get(b).add(a);
+        }
+
+        int[] colour = new int[n];
+        Arrays.fill(colour, -1);
+        boolean possible = true;
+
+        for (int start = 0; start < n && possible; start++) {
+            if (colour[start] != -1) {
+                continue;
+            }
+
+            colour[start] = 0;
+            Deque<Integer> queue = new ArrayDeque<>();
+            queue.add(start);
+
+            while (!queue.isEmpty()) {
+                int current = queue.poll();
+
+                for (int neighbour : adjList.get(current)) {
+                    if (colour[neighbour] == -1) {
+                        colour[neighbour] = queue.add(neighbour);
+                    }
+                }
+
+            }
         }
     }
 }
