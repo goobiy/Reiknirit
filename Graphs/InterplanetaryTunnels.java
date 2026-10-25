@@ -40,7 +40,7 @@ public class InterplanetaryTunnels {
             for (int neighbour : adjList.get(current)) {
                 if (distance[neighbour] == -1) {
                     distance[neighbour] = distance[current] + 1;
-                    queue.add(neighbour);
+                    queue.add(neighbour); // oklarad
                 }
             }
 
