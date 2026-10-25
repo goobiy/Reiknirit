@@ -14,7 +14,7 @@ public class InterplanetaryTunnels {
         int m = io.getInt(); // no. of hyper tunnels
 
         for (int i = 0; i < n; i++) {
-            adjList.add(new ArrayList<>());
+            adjList.add(new ArrayList<>()); // filling up the Planet arr with n spaces
         }
 
         int pa = io.getInt(); // planet A where Alice starts at
@@ -24,14 +24,14 @@ public class InterplanetaryTunnels {
         Arrays.fill(distance, -1);
 
         Deque<Integer> queue = new ArrayDeque<>();
-        queue.add(pa);
-        distance[pa] = 0;
+        queue.add(pa); // seeding the queue with Alice's starting planet
+        distance[pa] = 0; // marking the dist to herself as 0
 
         for (int i = 0; i < m; i++) { // establishing which planets are connected with a hyper tunnel
             int p1 = io.getInt();
             int p2 = io.getInt();
 
-            adjList.get(p1).add(p2); // adding p2 and p1 to the inner list of p1 and p2
+            adjList.get(p1).add(p2); // adding p2 and p1 to the inner list of p1 and p2 (creating edges)
             adjList.get(p2).add(p1); // Now we've established that the planets are connected with a tunnel
         }
 
@@ -46,5 +46,7 @@ public class InterplanetaryTunnels {
             }
 
         }
+        io.println((distance[pb] + 1) / 2);
+        io.flush();
     }
 }
