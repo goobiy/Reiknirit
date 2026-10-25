@@ -55,13 +55,40 @@ public class BreakingBad {
             while (!queue.isEmpty()) {
                 int current = queue.poll();
 
-                for (int neighbour : adjList.get(current)) {
+                for (int neighbour : adjList.get(current)) { // colours are 0 and 1
                     if (colour[neighbour] == -1) {
-                        colour[neighbour] = queue.add(neighbour);
+                        colour[neighbour] = 1 - colour[current];
+                        queue.add(neighbour);
+                    } else if (colour[neighbour] == colour[current]) {
+                        possible = false;
                     }
+                }
+                if (!possible) {
+                    io.println("impossible");
+                    io.flush();
+                    return;
                 }
 
             }
+            StringBuilder walter = new StringBuilder();
+            StringBuilder jesse = new StringBuilder();
+
+            for (int i = 0; i < n; i++) {
+                if (colour[i] == 0) {
+                    if (walter.length() > 0) {
+                        walter.append(" ");
+                    }
+                    walter.append(products[i]);
+                } else {
+                    if (jesse.length() > 0) {
+                        jesse.append(" ");
+                    }
+                    jesse.append(products[i]);
+                }
+            }
+            io.println(walter.toString());
+            io.println(jesse.toString());
+            io.flush();
         }
     }
 }
