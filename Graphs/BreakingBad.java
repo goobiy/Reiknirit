@@ -43,21 +43,22 @@ public class BreakingBad {
         Arrays.fill(colour, -1);
         boolean possible = true;
 
-        for (int start = 0; start < n && possible; start++) {
+        for (int start = 0; start < n && possible; start++) { // visiting every vertex
             if (colour[start] != -1) {
                 continue;
             }
 
             colour[start] = 0;
-            Deque<Integer> queue = new ArrayDeque<>();
+            Deque<Integer> queue = new ArrayDeque<>(); // for each vertex we visit all its connected verticies
             queue.add(start);
 
-            while (!queue.isEmpty()) {
+            while (!queue.isEmpty()) { // BFS implementation
                 int current = queue.poll();
 
                 for (int neighbour : adjList.get(current)) { // colours are 0 and 1
-                    if (colour[neighbour] == -1) {
-                        colour[neighbour] = 1 - colour[current];
+                    if (colour[neighbour] == -1) { // If not visited
+                        colour[neighbour] = 1 - colour[current]; // Either 1-0 or 1-1 so it won't become the same color
+                                                                 // as curr
                         queue.add(neighbour);
                     } else if (colour[neighbour] == colour[current]) {
                         possible = false;
