@@ -70,25 +70,25 @@ public class BreakingBad {
                 }
 
             }
-            StringBuilder walter = new StringBuilder();
-            StringBuilder jesse = new StringBuilder();
-
-            for (int i = 0; i < n; i++) {
-                if (colour[i] == 0) {
-                    if (walter.length() > 0) {
-                        walter.append(" ");
-                    }
-                    walter.append(products[i]);
-                } else {
-                    if (jesse.length() > 0) {
-                        jesse.append(" ");
-                    }
-                    jesse.append(products[i]);
-                }
-            }
-            io.println(walter.toString());
-            io.println(jesse.toString());
-            io.flush();
         }
+        StringBuilder walter = new StringBuilder();
+        StringBuilder jesse = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+            if (colour[i] == 0) {
+                if (walter.length() > 0) {
+                    walter.append(" ");
+                }
+                walter.append(products[i]);
+            } else {
+                if (jesse.length() > 0) {
+                    jesse.append(" ");
+                }
+                jesse.append(products[i]);
+            }
+        }
+        io.println(walter.toString());
+        io.println(jesse.toString());
+        io.flush();
     }
 }
