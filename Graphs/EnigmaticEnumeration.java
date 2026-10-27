@@ -15,7 +15,7 @@ public class EnigmaticEnumeration {
             int e1 = io.getInt();
             int e2 = io.getInt();
 
-            net.addEdge(e1, e2);
+            net.addEdge(e1, e2); // Adding the connections between edges
             ;
         }
 
