@@ -1,13 +1,11 @@
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.List;
 
 import edu.princeton.cs.algs4.Graph;
 
-public class EnigmaticEnumeration {
+public class EE {
 
     public static void main(String[] args) {
         Kattio io = new Kattio(System.in, System.out);
@@ -51,6 +49,8 @@ public class EnigmaticEnumeration {
                 }
             }
         }
+        io.println(girth);
+        io.flush();
 
     }
 
