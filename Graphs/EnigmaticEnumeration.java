@@ -5,7 +5,7 @@ import java.util.Deque;
 
 import edu.princeton.cs.algs4.Graph;
 
-public class EE {
+public class EnigmaticEnumeration {
 
     public static void main(String[] args) {
         Kattio io = new Kattio(System.in, System.out);
@@ -49,9 +49,38 @@ public class EE {
                 }
             }
         }
-        io.println(girth);
-        io.flush();
 
+        long total = 0;
+        int k = girth / 2;
+        boolean odd = girth % 2 == 1;
+
+        for (int start = 0; start < n; start++) {
+            bfs(net, start, dist);
+
+            for (int u = 0; u < n; u++) {
+                if (dist[u] != k) {
+                    continue;
+                }
+                if (odd) {
+                    for (int nb : net.adj(u)) {
+                        if (dist[nb] == k && u < nb) {
+                            total++;
+                        }
+                    }
+                } else {
+                    long p = 0;
+                    for (int nb : net.adj(u)) {
+                        if (dist[nb] == k - 1) {
+                            p++;
+                        }
+                    }
+                    total += p * (p - 1) / 2;
+                }
+            }
+        }
+
+        io.println(total / girth);
+        io.close();
     }
 
     private static void bfs(Graph net, int start, int[] dist) {
