@@ -57,8 +57,8 @@ public class BreakingBad {
 
                 for (int neighbour : adjList.get(current)) { // colours are 0 and 1
                     if (colour[neighbour] == -1) { // If not visited
-                        colour[neighbour] = 1 - colour[current]; // Either 1-0 or 1-1 so it won't become the same color
-                                                                 // as curr
+                        // Either 1-0 or 1-1 so it won't become the same coloras curr
+                        colour[neighbour] = 1 - colour[current];
                         queue.add(neighbour);
                     } else if (colour[neighbour] == colour[current]) {
                         possible = false;
